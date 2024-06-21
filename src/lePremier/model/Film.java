@@ -5,6 +5,10 @@ import lePremier.calculator.Classification;
 public class Film extends Title implements Classification {
     private String director;
 
+    public Film(String name, int releaseYear) {
+        super(name, releaseYear);
+    }
+
     public String getDirector(){
         return this.director;
     }
@@ -15,6 +19,11 @@ public class Film extends Title implements Classification {
     @Override
     public int getClassification() {
         return (int)ratingAverage()/2;
+    }
+
+    @Override
+    public String toString() {
+        return "Film: " + this.getName()+ " (" + this.getReleaseYear() + ")\n" ;
     }
 }
 

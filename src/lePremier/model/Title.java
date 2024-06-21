@@ -1,12 +1,17 @@
 package lePremier.model;
 
-public class Title {
+public class Title implements Comparable<Title> {
     private String name;
     private int releaseYear;
     private boolean partOfThePlan;
     private double ratingsSum;
     private int ratingsTotal;
     private int minutes;
+
+    public Title(String name, int releaseYear){
+        this.name=name;
+        this.releaseYear=releaseYear;
+    }
 
     public String getName(){
         return this.name;
@@ -49,6 +54,10 @@ public class Title {
     public double ratingAverage(){
         return ratingsSum / ratingsTotal;
     }
-
+//method required to compare title with title from comparable
+    @Override
+    public int compareTo(Title otherTitle) {
+        return this.getName().compareTo(otherTitle.getName());
+    }
 }
 
